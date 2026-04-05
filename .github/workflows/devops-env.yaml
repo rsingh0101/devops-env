@@ -18,10 +18,10 @@ jobs:
           key: dev-env-${{ runner.os }}-${{ hashFiles('**/*.sh') }}
       
       - name: Make scripts executable
-        run: chmod +x bootstrap.sh install/*.sh
+        run: chmod +x dev-env/bootstrap.sh dev-env/install/*.sh
 
       - name: Run bootstrap
-        run: ./bootstrap.sh
+        run: ./dev-env/bootstrap.sh
 
       - name: Verify tools
         run: |
