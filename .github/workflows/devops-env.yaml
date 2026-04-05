@@ -17,6 +17,9 @@ jobs:
                 ~/.local
           key: dev-env-${{ runner.os }}-${{ hashFiles('**/*.sh') }}
       
+      - name: Debug repo structure
+        run: ls -R  
+
       - name: Make scripts executable
         run: chmod +x dev-env/bootstrap.sh dev-env/install/*.sh
 
