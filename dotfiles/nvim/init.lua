@@ -1,0 +1,10 @@
+require("options")
+require("mappings")
+require("plugins")
+
+require("configs.lsp")
+require("configs.telescope")
+require("configs.mason")
+require("configs.cmp")
+require("configs.null-ls")
+require("configs.treesitter")

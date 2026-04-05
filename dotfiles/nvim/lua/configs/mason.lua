@@ -1,0 +1,11 @@
+require("mason").setup()
+
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "gopls",
+    "pyright",
+    "terraformls",
+    "bashls",
+    "yamlls",
+  },
+})
