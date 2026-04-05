@@ -11,7 +11,12 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/cache@v4
-
+        with:
+          path: |
+                ~/.cache
+                ~/.local
+          key: dev-env-${{ runner.os }}-${{ hashFiles('**/*.sh') }}
+      
       - name: Make scripts executable
         run: chmod +x bootstrap.sh install/*.sh
 
