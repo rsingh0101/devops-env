@@ -1,0 +1,31 @@
+name: DevOps Environment Setup Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-devops-env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/cache@v4
+
+      - name: Make scripts executable
+        run: chmod +x bootstrap.sh install/*.sh
+
+      - name: Run bootstrap
+        run: ./bootstrap.sh
+
+      - name: Verify tools
+        run: |
+          kubectl version --client
+          terraform version
+          helm version
+          go version
+          python3 --version
+          nvim --version
+
+      - name: Test Neovim config
+        run: nvim --headless "+qa"
